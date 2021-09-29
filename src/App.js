@@ -1,6 +1,8 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './details.js';
+import Detail from './details.js';
 
 function getRandom() {
   return Math.floor(Math.random() * 100) + 1;
@@ -8,9 +10,6 @@ function getRandom() {
 
 const URL = 'https://superheroapi.com/api/10159910119890854/';
 const loppu = getRandom();
-
-/* https://www.superheroapi.com/api.php/10159910119890854/1 hakee tyypin kaikki tiedot, jos tuohon vikaan tekisi random-numero generaattorin, 
-jolla tuon arpoisi? haussa taas käyttäjä voisi antaa numeron, jolla kanta hakee. tai sitten alasvetovalikko. */
 
 function App() {
   const [name, setName] = useState('');
@@ -20,12 +19,77 @@ function App() {
   const [puoli, setPuoli] = useState('');
   const [kuva, setKuva] = useState('');
   let kumpi = "";
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     const address = URL + loppu;
 
     axios.get(address)
       .then((response) => { 
+        setError(null);
+        setIsLoaded(true);
+        setItems(response.data);
+      }).catch(error => {
+        alert(error);
+      });  }
+      , [])
+
+      function close() {
+        setSelectedItem(null);
+      }
+
+      if (selectedItem != null) {
+        return <Detail
+          name={selectedItem.name}
+          realName={selectedItem.biography['full-name']}
+          birth={selectedItem.biography['place-of-birth']}
+          publisher={selectedItem.biography.publisher}
+          puoli={selectedItem.kumpi}
+          kuva={selectedItem.image}
+          close={close}
+          />
+      }
+    
+       else if (error) {
+          return <p>{error.message}</p>;
+        }
+        else if (!isLoaded) {
+          return <p>Loading...</p>;
+        }
+        else {
+          return (
+            <div>
+              {items.map(item => (
+                <div key={item.name} onClick={e => setSelectedItem(item)}>
+                  <h1>{item.name}</h1>
+                  <img src={item.urlToImage}></img>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          );
+        }
+    } 
+    export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
+
       const hero = response.data; 
       setName(hero.name);
       setRealName(hero.biography['full-name']);
@@ -61,3 +125,4 @@ function App() {
 
   export default App;
 
+ */
