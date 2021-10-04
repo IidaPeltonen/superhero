@@ -11,7 +11,7 @@ const URL = 'https://superheroapi.com/api/10159910119890854/';
 
 function Superhero() {
 
-     const [kysely, setKysely] = useState('');
+    const [kysely, setKysely] = useState('');
     const [name, setName] = useState('');
     const [realName, setRealName] = useState('');
     const [birth, setBirth] = useState('');
@@ -47,9 +47,8 @@ function Superhero() {
 
         if (vastaus.ok) {
           const json = await vastaus.json();
-          const hero = json.id; 
+          const hero = json; 
           setName(hero.name);
-          console.log(hero)
           setAly(hero.powerstats.intelligence);
           setVoima(hero.powerstats.strength);
           setNopeus(hero.powerstats.speed);
@@ -116,7 +115,6 @@ function Superhero() {
           <p>Group Affiliation : {ryhma}</p>
           <p>Relatives : {suku}</p>
         </div>
-        ----------------------------------------------------------------
         <p></p>
         <p></p>
       </form>
