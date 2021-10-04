@@ -46,10 +46,10 @@ function Superhero() {
         console.log(vastaus)
 
         if (vastaus.ok) {
-          console.log(vastaus.data);
           const json = await vastaus.json();
-          const hero = json.hero; 
+          const hero = json.id; 
           setName(hero.name);
+          console.log(hero)
           setAly(hero.powerstats.intelligence);
           setVoima(hero.powerstats.strength);
           setNopeus(hero.powerstats.speed);
@@ -87,15 +87,15 @@ function Superhero() {
       <form onSubmit={etsi}>
         <div>
           <h3>Find Your Superhero (or SuperVillain!)</h3>
-          <label className="form-label">ID-number :</label>&nbsp;
+          <label className="form-label">ID-number :</label>
           <input type="number" value={kysely} onChange={e => setKysely(e.target.value)} />
         </div>
         <div>
             <button>Search my hero!</button>
         </div>
-        <div >
+        <div id="esiin">
           <p>Name : {name}</p>
-          <img src={kuva}></img>
+          <img src={kuva} alt='hero or villain' />
           <p>Intelligense : {aly}     Strength : {voima}    Speed : {nopeus}</p>
           <p>Durability : {kesto}     Power : {teho}       Combat : {taistelu}</p>  
           ----------------------------------------------------------------

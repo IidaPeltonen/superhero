@@ -44,3 +44,11 @@ img {
 #center {
   text-align: center;
 }
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
