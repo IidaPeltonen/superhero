@@ -32,7 +32,7 @@ function getRandom() {
 } 
 
 const URL = 'https://superheroapi.com/api/';
-const APIKEY = '10159910119890854/';
+const APIKEY = 'APIKOODI TÄHÄN';
 
 function Superhero() {
     const [kysely, setKysely] = useState('');
