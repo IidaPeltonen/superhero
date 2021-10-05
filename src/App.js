@@ -253,11 +253,11 @@ function Superhero() {
           <img src={kuva} alt='hero or villain' id='kehys'/>
           <br />
           <br />
+          <p>Gender : <img src={genderKuva} />  Eye color : <img src={varisilma} />   Hair color : <img src={variHius} /> </p>
+          <p>Weight : {weight}  Height : {height} Race : {race} </p>
+          <p id='gold'>----------------------------------------------------------------</p>
           <p>Intelligense : {aly}     Strength : {voima}    Speed : {nopeus}</p>
           <p>Durability : {kesto}     Power : {teho}       Combat : {taistelu}</p>  
-          <p id='gold'>----------------------------------------------------------------</p>
-          <p>Gender : <img src={genderKuva} />  Eye color : <img src={varisilma} />   Hair color : <img src={variHius} /> </p>
-          <p>Weight : {weight}  Race : {race}         Height : {height} </p>
           <p id='gold'>----------------------------------------------------------------</p>
           <p>Real Name : {realName}</p>
           <p>Alter egos : {egot}</p>
