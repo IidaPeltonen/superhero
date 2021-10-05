@@ -69,8 +69,8 @@ function Superhero() {
           setKuva(hero.image.url);
           setGender(hero.appearance.gender);
           setRace(hero.appearance.race);
-          setHeight(hero.appearance.height);
-          setWeight(hero.appearance.weight);
+          setHeight(hero.appearance.height[1]);
+          setWeight(hero.appearance.weight[1]);
           setEyes(hero.appearance['eye-color']);
           setHair(hero.appearance['hair-color']);
           setTyo(hero.work.occupation);
@@ -84,7 +84,7 @@ function Superhero() {
         alert(err)
       }
     }
-    
+      
   return (
     <div id="center">
       <form onSubmit={etsi}>
