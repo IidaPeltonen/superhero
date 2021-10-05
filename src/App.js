@@ -46,7 +46,7 @@ function Superhero() {
         if (kysely.length === 0) {
           loppu = getRandom();
         }
-        const vastaus = await fetch(address + kysely)
+        const vastaus = await fetch(address + loppu)
         console.log(vastaus)
 
         if (vastaus.ok) {
