@@ -1,40 +1,32 @@
-#container {
-  margin: 30px;
-}
-
-#container div {
-  margin-bottom: 20px;
-}
-
-label {
-  display: inline-block;
-  width: 250px;
-}
-
 body {
-  background-color: slategrey;
-  color: white;
+  background-color: black;
+  color: whitesmoke; 
   padding-left: 30px;
   padding-top: 20px;
+  background-image: url('marvel-villain-superhero.jpg');
+  background-repeat: repeat-y;
+  margin-left:10px;
+  margin-right: 10px;
 }
 
-input, select {
-  width: 80px;
+input {
+  width: 60px;
+  margin-left: 10px;
 }
 
 h1 {
-  font-size: larger;
-  color: black;
+  font-size: xx-large;
+  color: whitesmoke;
 }
 
 h3 {
-  font-size: medium;
-  color:cornsilk;
+  font-size: larger;
+  color:whitesmoke;
 }
 
 p {
   font-size: medium;
-  color: white;
+  color:whitesmoke;
 }
 
 img {
@@ -45,10 +37,12 @@ img {
   text-align: center;
 }
 
-.visible {
-  visibility: visible;
+#kehys {
+  border: gold;
+  border-style: double;
 }
 
-.invisible {
-  visibility: hidden;
+#gold {
+  color: gold;
 }
+

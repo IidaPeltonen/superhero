@@ -1,16 +1,37 @@
 import './App.css';
 import { useState } from 'react';
-//import axios from 'axios';
+import male from './male.PNG';
+import female from './female.PNG';
+import musta from './musta.jpg';
+import sininen from './sininen.jpg';
+import vihrea from './vihrea.jpg';
+import ruskea from './ruskea.jpg';
+import keltsi from './keltsi.jpg';
+import kalju from './kalju.jpg';
+import blond from './blond.jpg';
+import kysymys from './kysymys.jpg';
+import white from './white.jpg';
+import red from './red.jpg';
+import StrawberryBlond from './StrawberryBlond.jpg';
+import Auburn from './Auburn.jpg';
+import Amber from './Amber.jpg';
+import gold from './gold.jpg';
+import Violet from './Violet.jpg';
+import Silver from './Silver.jpg';
+import Hazel from './Hazel.jpg';
+import Purple from './Purple.jpg';
+import Grey from './Grey.jpg';
+import bb from './bb.jpg';
+import rw from './rw.jpg';
 
 function getRandom() {
   return Math.floor(Math.random() * 731) + 1;
 } 
 
-const URL = 'https://superheroapi.com/api/10159910119890854/';
-//const loppu = getRandom();
+const URL = 'https://superheroapi.com/api/';
+const APIKEY = '10159910119890854/';
 
 function Superhero() {
-
     const [kysely, setKysely] = useState('');
     const [name, setName] = useState('');
     const [realName, setRealName] = useState('');
@@ -28,11 +49,14 @@ function Superhero() {
     const [kesto, setKesto] = useState('');
     const [kuva, setKuva] = useState('');
     const [gender, setGender] = useState('');
+    const [genderKuva, setGenderKuva] = useState('');
     const [race, setRace] = useState('');
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
     const [eyes, setEyes] = useState('');
+    const [varisilma, setVariSilma] =  useState('');
     const [hair, setHair] = useState('');
+    const [variHius, setVariHius] = useState('');
     const [tyo, setTyo] = useState('');
     const [base, setBase] = useState('');
     const [ryhma, setRyhma] = useState('');
@@ -42,12 +66,11 @@ function Superhero() {
       e.preventDefault()
       try {
         let loppu = kysely;
-        const address = URL;
+        const address = URL + APIKEY;
         if (kysely.length === 0) {
           loppu = getRandom();
         }
         const vastaus = await fetch(address + loppu)
-        console.log(vastaus)
 
         if (vastaus.ok) {
           const json = await vastaus.json();
@@ -68,11 +91,110 @@ function Superhero() {
           setPuoli(hero.biography.alignment);
           setKuva(hero.image.url);
           setGender(hero.appearance.gender);
+            if (hero.appearance.gender === 'Male') {
+              setGenderKuva(male);
+            }
+            if (hero.appearance.gender === 'Female') {
+              setGenderKuva(female);
+            }
           setRace(hero.appearance.race);
           setHeight(hero.appearance.height[1]);
           setWeight(hero.appearance.weight[1]);
           setEyes(hero.appearance['eye-color']);
+            if (hero.appearance['eye-color'] === 'Yellow') {
+              setVariSilma(keltsi);
+            }
+            if (hero.appearance['eye-color'] === 'Brown') {
+              setVariSilma(ruskea);
+            }
+            if (hero.appearance['eye-color'] === 'brown') {
+              setVariSilma(ruskea);
+            }
+            if (hero.appearance['eye-color'] === 'Bown') {
+              setVariSilma(ruskea);
+            }
+            if (hero.appearance['eye-color'] === 'Silver') {
+              setVariSilma(Silver);
+            } 
+            if (hero.appearance['eye-color'] === 'Gold') {
+              setVariSilma(gold);
+            }
+            if (hero.appearance['eye-color'] === 'Black') {
+              setVariSilma(musta);
+            }
+            if (hero.appearance['eye-color'] === 'Blue') {
+              setVariSilma(sininen);
+            }
+            if (hero.appearance['eye-color'] === 'Green') {
+              setVariSilma(vihrea);
+            }
+            if (hero.appearance['eye-color'] === 'Grey') {
+              setVariSilma(Grey);
+            }
+            if (hero.appearance['eye-color'] === '-') {
+              setVariSilma(kysymys);
+            }
+            if (hero.appearance['eye-color'] === 'Violet') {
+              setVariSilma(Violet);
+            } 
+            if (hero.appearance['eye-color'] === 'Red') {
+              setVariSilma(red);
+            } 
+            if (hero.appearance['eye-color'] === 'White') {
+              setVariSilma(white);
+            }
+            if (hero.appearance['eye-color'] === 'Purple') {
+              setVariSilma(Purple);
+            } 
+            if (hero.appearance['eye-color'] === 'Amber') {
+              setVariSilma(Amber);
+            }
+            if (hero.appearance['eye-color'] === 'Hazel') {
+              setVariSilma(Hazel);
+            } 
           setHair(hero.appearance['hair-color']);
+            if (hero.appearance['hair-color'] === 'No Hair') {
+              setVariHius(kalju);
+            }
+            if (hero.appearance['hair-color'] === 'Black') {
+              setVariHius(musta);
+            }
+            if (hero.appearance['hair-color'] === 'Red / White') {
+              setVariHius(rw);
+            } 
+            if (hero.appearance['hair-color'] === 'Black / Blue') {
+              setVariHius(bb);
+            }
+            if (hero.appearance['hair-color'] === 'Purple') {
+              setVariHius(Purple);
+            }
+            if (hero.appearance['hair-color'] === 'Silver') {
+              setVariHius(Silver);
+            } 
+            if (hero.appearance['hair-color'] === 'Strawberry Blond') {
+              setVariHius(StrawberryBlond);
+            }
+            if (hero.appearance['hair-color'] === 'Grey') {
+              setVariHius(Grey);
+            }
+            if (hero.appearance['hair-color'] === 'Blond') {
+              setVariHius(blond);
+            }
+            if (hero.appearance['hair-color'] === 'Brown') {
+              setVariHius(ruskea);
+            }
+            if (hero.appearance['hair-color'] === '-') {
+              setVariHius(kysymys);
+            } 
+            if (hero.appearance['hair-color'] === 'White') {
+              setVariHius(white);
+            }
+            if (hero.appearance['hair-color'] === 'Red') {
+              setVariHius(red);
+            }
+            if (hero.appearance['hair-color'] === 'Auburn') {
+              setVariHius(Auburn);
+            } 
           setTyo(hero.work.occupation);
           setBase(hero.work.base);
           setRyhma(hero.connections['group-affiliation']);
@@ -89,22 +211,30 @@ function Superhero() {
     <div id="center">
       <form onSubmit={etsi}>
         <div>
-          <h3>Find Your Superhero (or SuperVillain!)</h3>
-          <label className="form-label">ID-number :</label>
+          <h1>Find Your Superhero (or SuperVillain!)</h1>
+          <br />
+          <br />
+          <label className="form-label">ID-number </label>
           <input type="number" value={kysely} onChange={e => setKysely(e.target.value)} />
+          <br />
         </div>
         <div>
             <button>Search my hero!</button>
         </div>
-        <div id="esiin">
-          <p>Name : {name}</p>
-          <img src={kuva} alt='hero or villain' />
+        <div>
+          <br />
+          <br />
+          <h1 id='gold'>{name}</h1>
+          <br />
+          <img src={kuva} alt='hero or villain' id='kehys'/>
+          <br />
+          <br />
           <p>Intelligense : {aly}     Strength : {voima}    Speed : {nopeus}</p>
           <p>Durability : {kesto}     Power : {teho}       Combat : {taistelu}</p>  
-          ----------------------------------------------------------------
-          <p>Gender : {gender}        Race : {race}         Height : {height}</p>
-          <p>Weight : {weight}        Eye color : {eyes}    Hair color : {hair}</p>
-          ----------------------------------------------------------------
+          <p id='gold'>----------------------------------------------------------------</p>
+          <p>Gender : <img src={genderKuva} />  Eye color : <img src={varisilma} />  Hair color : <img src={variHius} /> </p>
+          <p>Weight : {weight}  Race : {race}         Height : {height} </p>
+          <p id='gold'>----------------------------------------------------------------</p>
           <p>Real Name : {realName}</p>
           <p>Alter egos : {egot}</p>
           <p>Aliases : {alias}</p>
@@ -112,10 +242,10 @@ function Superhero() {
           <p>First seen : {nahty}</p>
           <p>Publisher : {publisher}</p> 
           <p>Good or Bad : {puoli}</p>
-          ----------------------------------------------------------------
+          <p id='gold'>----------------------------------------------------------------</p>
           <p>Occupation : {tyo}</p>
           <p>Base : {base}</p>
-          ----------------------------------------------------------------
+          <p id='gold'>----------------------------------------------------------------</p>
           <p>Group Affiliation : {ryhma}</p>
           <p>Relatives : {suku}</p>
         </div>
