@@ -2,9 +2,9 @@ import './App.css';
 import { useState } from 'react';
 //import axios from 'axios';
 
-/* function getRandom() {
-  return Math.floor(Math.random() * 100) + 1;
-} */
+function getRandom() {
+  return Math.floor(Math.random() * 731) + 1;
+} 
 
 const URL = 'https://superheroapi.com/api/10159910119890854/';
 //const loppu = getRandom();
@@ -41,7 +41,11 @@ function Superhero() {
     async function etsi(e) {
       e.preventDefault()
       try {
+        let loppu = kysely;
         const address = URL;
+        if (kysely.length === 0) {
+          loppu = getRandom();
+        }
         const vastaus = await fetch(address + kysely)
         console.log(vastaus)
 
