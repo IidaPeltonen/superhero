@@ -51,14 +51,11 @@ function Superhero() {
     const [nopeus, setNopeus] = useState('');
     const [kesto, setKesto] = useState('');
     const [kuva, setKuva] = useState('');
-    const [gender, setGender] = useState('');
     const [genderKuva, setGenderKuva] = useState('');
     const [race, setRace] = useState('');
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
-    const [eyes, setEyes] = useState('');
     const [varisilma, setVariSilma] =  useState('');
-    const [hair, setHair] = useState('');
     const [variHius, setVariHius] = useState('');
     const [tyo, setTyo] = useState('');
     const [base, setBase] = useState('');
@@ -101,17 +98,15 @@ function Superhero() {
           setPublisher(hero.biography.publisher);  
           setPuoli(hero.biography.alignment);
           setKuva(hero.image.url);
-          setGender(hero.appearance.gender);
-            if (hero.appearance.gender === 'Male') {
+          if (hero.appearance.gender === 'Male') {
               setGenderKuva(male);
-            }
-            if (hero.appearance.gender === 'Female') {
-              setGenderKuva(female);
-            }
+          }
+          if (hero.appearance.gender === 'Female') {
+            setGenderKuva(female);
+          }
           setRace(hero.appearance.race);
           setHeight(hero.appearance.height[1]);
           setWeight(hero.appearance.weight[1]);
-          setEyes(hero.appearance['eye-color']);
             if (hero.appearance['eye-color'] === 'Yellow') {
               setVariSilma(keltsi);
             }
@@ -172,7 +167,6 @@ function Superhero() {
             if (hero.appearance['eye-color'] === 'Hazel') {
               setVariSilma(Hazel);
             } 
-          setHair(hero.appearance['hair-color']);
             if (hero.appearance['hair-color'] === 'No Hair') {
               setVariHius(kalju);
             }
@@ -261,7 +255,7 @@ function Superhero() {
           <img src={kuva} alt='hero or villain' id='kehys'/>
           <br />
           <br />
-          <p>Gender : <img src={genderKuva} />  Eye color : <img src={varisilma} />   Hair color : <img src={variHius} /> </p>
+          <p>Gender : <img src={genderKuva} alt='sukupuoli' />  Eye color : <img src={varisilma} alt='silmienväri' />   Hair color : <img src={variHius} alt='hiustenväri' /> </p>
           <p>Weight : {weight}  Height : {height} Race : {race} </p>
           <p id='gold'>----------------------------------------------------------------</p>
           <p>Intelligense : {aly}     Strength : {voima}    Speed : {nopeus}</p>
