@@ -4,6 +4,7 @@ body {
   padding-left: 30px;
   padding-top: 20px;
   background-image: url('marvel-villain-superhero.jpg');
+  background-size: 100%;
   background-repeat: repeat-y;
   margin-left:10px;
   margin-right: 10px;

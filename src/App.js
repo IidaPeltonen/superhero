@@ -23,6 +23,9 @@ import Purple from './Purple.jpg';
 import Grey from './Grey.jpg';
 import bb from './bb.jpg';
 import rw from './rw.jpg';
+import indigo from './indigo.jpg';
+import bw from './bw.jpg';
+import suomi from './suomi.jpg';
 
 function getRandom() {
   return Math.floor(Math.random() * 731) + 1;
@@ -122,7 +125,16 @@ function Superhero() {
             if (hero.appearance['eye-color'] === 'Black') {
               setVariSilma(musta);
             }
+            if (hero.appearance['eye-color'] === 'black') {
+              setVariSilma(musta);
+            }
+            if (hero.appearance['eye-color'] === 'Blue / White') {
+              setVariSilma(suomi);
+            }
             if (hero.appearance['eye-color'] === 'Blue') {
+              setVariSilma(sininen);
+            }
+            if (hero.appearance['eye-color'] === 'blue') {
               setVariSilma(sininen);
             }
             if (hero.appearance['eye-color'] === 'Green') {
@@ -159,8 +171,14 @@ function Superhero() {
             if (hero.appearance['hair-color'] === 'Black') {
               setVariHius(musta);
             }
+            if (hero.appearance['hair-color'] === 'black') {
+              setVariHius(musta);
+            }
             if (hero.appearance['hair-color'] === 'Red / White') {
               setVariHius(rw);
+            } 
+            if (hero.appearance['hair-color'] === 'Indigo') {
+              setVariHius(indigo);
             } 
             if (hero.appearance['hair-color'] === 'Black / Blue') {
               setVariHius(bb);
@@ -177,6 +195,9 @@ function Superhero() {
             if (hero.appearance['hair-color'] === 'Grey') {
               setVariHius(Grey);
             }
+            if (hero.appearance['hair-color'] === 'Green') {
+              setVariHius(vihrea);
+            }
             if (hero.appearance['hair-color'] === 'Blond') {
               setVariHius(blond);
             }
@@ -185,6 +206,9 @@ function Superhero() {
             }
             if (hero.appearance['hair-color'] === '-') {
               setVariHius(kysymys);
+            } 
+            if (hero.appearance['hair-color'] === 'Brown / White') {
+              setVariHius(bw);
             } 
             if (hero.appearance['hair-color'] === 'White') {
               setVariHius(white);
@@ -232,7 +256,7 @@ function Superhero() {
           <p>Intelligense : {aly}     Strength : {voima}    Speed : {nopeus}</p>
           <p>Durability : {kesto}     Power : {teho}       Combat : {taistelu}</p>  
           <p id='gold'>----------------------------------------------------------------</p>
-          <p>Gender : <img src={genderKuva} />  Eye color : <img src={varisilma} />  Hair color : <img src={variHius} /> </p>
+          <p>Gender : <img src={genderKuva} />  Eye color : <img src={varisilma} />   Hair color : <img src={variHius} /> </p>
           <p>Weight : {weight}  Race : {race}         Height : {height} </p>
           <p id='gold'>----------------------------------------------------------------</p>
           <p>Real Name : {realName}</p>
