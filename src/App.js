@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import male from './male.PNG';
 import female from './female.PNG';
 import musta from './musta.jpg';
@@ -65,8 +65,16 @@ function Superhero() {
     const [ryhma, setRyhma] = useState('');
     const [suku, setSuku] = useState('');
 
+    useEffect(() => {
+      hae();
+    }, [])
+
     async function etsi(e) {
-      e.preventDefault()
+      e.preventdefault()
+      hae();
+    }
+
+    async function hae() {
       try {
         let loppu = kysely;
         const address = URL + APIKEY;
