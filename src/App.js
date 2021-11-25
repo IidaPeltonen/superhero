@@ -237,11 +237,11 @@ function Superhero() {
     <div id="center">
       <form onSubmit={etsi}>
         <div>
-          <h1>Find Your Superhero (or SuperVillain!)</h1>
+          <h1>Find Your Costume!</h1>
           <br />
           <br />
-          <label className="form-label">ID-number </label>
-          <input type="number" value={kysely} onChange={e => setKysely(e.target.value)} />
+         {/* <label className="form-label">ID-number </label>
+           //<input type="number" value={kysely} onChange={e => setKysely(e.target.value)} /> */}
           <br />
         </div>
         <div>
